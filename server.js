@@ -77,7 +77,29 @@ const cards = [
     new Card("King", 10, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiUFh5YlluNUlUWENVY05sS2lWd1IifQ==,signature:4802dcce57b96bb277a2d1e377486a75e4acee8da875b68a481f7f8cdb8da9f7/PXybYn5ITXCUcNlKiVwR")
 ];
 
-console.log(`${cards[36].name} of ${cards[36].suit}`);
+// create deck
+let deck = [];
+
+const createDeck = () => {
+  deck = []; // Reset deck
+  for (const card of cards) {
+    deck.push(card);
+  }
+}
+
+const shuffleDeck = () => {
+    for (let i = deck.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = deck[i];
+      deck[i] = deck[j];
+      deck[j] = temp;
+    }
+}
+
+createDeck();
+shuffleDeck();
+
+console.log(deck[0]);
 
 
 app.use(express.json());
