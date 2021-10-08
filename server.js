@@ -62,19 +62,19 @@ const cards = [
     new Card("Jack", 10, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiYjdyUXE5bXpRamlmQzRkVzViREYifQ==,signature:834ccbe796f6919dcc82ce5cb052932c9064962ec705dfda3da987775392d152/b7rQq9mzQjifC4dW5bDF"),
     new Card("Queen", 10, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiRWVmaTlzc09UZWkwRjVKM0tqZkEifQ==,signature:ac1b1bde3027e3c5e079f26be5ae3eba46197df88769b79c71332aa94a167316/Eefi9ssOTei0F5J3KjfA"),
     new Card("King", 10, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiQ3F5QkoyQlJ0bWw1VnM0Y3Y4bnIifQ==,signature:433db00e749b4b9a0757760a988ce39eed2538a9f988b36cafca8e59104232b2/CqyBJ2BRtml5Vs4cv8nr"),
-    new Card("Ace", 1, "Diamonds", ""),
-    new Card("Two", 2, "Diamonds", ""),
-    new Card("Three", 3, "Diamonds", ""),
-    new Card("Four", 4, "Diamonds", ""),
-    new Card("Five", 5, "Diamonds", ""),
-    new Card("Six", 6, "Diamonds", ""),
-    new Card("Seven", 7, "Diamonds", ""),
-    new Card("Eight", 8, "Diamonds", ""),
-    new Card("Nine", 9, "Diamonds", ""),
-    new Card("10", 10, "Diamonds", ""),
-    new Card("Jack", 10, "Diamonds", ""),
-    new Card("Queen", 10, "Diamonds", ""),
-    new Card("King", 10, "Diamonds", "")
+    new Card("Ace", 1, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiQmJGczZWdWZTRG0zRjViY2UzbXcifQ==,signature:f6546abbff153265eb55833b7e68724a52a80f94d77eabc5f1c6173b7990769c/BbFs6VufSDm3F5bce3mw"),
+    new Card("Two", 2, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiM2RQY2tIVHJpRFRXZzNlNTlnQlEifQ==,signature:a0f4681e092cc6a6ad8223563a142f0328a7fae7003d5ae520f311b39899db75/3dPckHTriDTWg3e59gBQ"),
+    new Card("Three", 3, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiZ202ZUszTkVRbzIyNFc0MVJuV2kifQ==,signature:dd27f3f475120a2848e3d0a2c9e92d7eb7372a238f5b0c5253e6baee22f57746/gm6eK3NEQo224W41RnWi"),
+    new Card("Four", 4, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiUFZaVlVMNVJxNnhod0k4d2pHMmcifQ==,signature:1c8fa7b208dc514440e58568ccef5ade5c4e971311b18a8407b11513be265a10/PVZVUL5Rq6xhwI8wjG2g"),
+    new Card("Five", 5, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiOFFjVHpqVWhUQmlYVXVVUjR3QmsifQ==,signature:677beb64d8b9d37228e1eaa2e8e16fc962c9ac0804ef5133d79bb5337366c92d/8QcTzjUhTBiXUuUR4wBk"),
+    new Card("Six", 6, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiMEE0QkFwQ2lSY1dURE1CbElmMHoifQ==,signature:23fab4669029ed3374a15215994d0249cdcecfb4313b81d8c9a5bffebce70be4/0A4BApCiRcWTDMBlIf0z"),
+    new Card("Seven", 7, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiTHBBSUY1Wm9SVldmUFNmR0sxeHEifQ==,signature:53301388253fb592f50930b1da90150e94a12944495218baa400d402847935ef/LpAIF5ZoRVWfPSfGK1xq"),
+    new Card("Eight", 8, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoib1k0RjFuYklUeFM2WTlnbnBxNVYifQ==,signature:ed9f63bb2a1a7d7be87ca95012cf6f13bef6f27d8738ab9dea45e71557d62e41/oY4F1nbITxS6Y9gnpq5V"),
+    new Card("Nine", 9, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiYmVibGxNNVNUWTY1dW4yZE5qWkIifQ==,signature:48e1d9bd28f3d02e1cc1e3e2d69c0aba42f0c067810b481ca82ffb3cd21f5e13/bebllM5STY65un2dNjZB"),
+    new Card("10", 10, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiak1xaEVjd1BRTWVkRzBLSEx6ajkifQ==,signature:0b38fff93dc71f1620a0fcf302e409e2c811ed26c5be1d65cea262c3ec03698c/jMqhEcwPQMedG0KHLzj9"),
+    new Card("Jack", 10, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiRVBFeEZ0OVJ0dWs2TFV4SXAzR0cifQ==,signature:e0a743d8b45cc47263f4886da43ff33d78f4376285a43e6f5f138e8dd98ef361/EPExFt9Rtuk6LUxIp3GG"),
+    new Card("Queen", 10, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoibFR3NjROTEhUdmVNdWNtZ2s5c2EifQ==,signature:efdca9327da1decebf289c5ff0501f2f64462588326ea468853692f97c0e0079/lTw64NLHTveMucmgk9sa"),
+    new Card("King", 10, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiUFh5YlluNUlUWENVY05sS2lWd1IifQ==,signature:4802dcce57b96bb277a2d1e377486a75e4acee8da875b68a481f7f8cdb8da9f7/PXybYn5ITXCUcNlKiVwR")
 ];
 
 console.log(`${cards[36].name} of ${cards[36].suit}`);
