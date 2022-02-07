@@ -23,7 +23,7 @@ class Card {
 }
 
 const cards = [
-    new Card("Ace", 1, "Spades", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoibDVNa0w1d3dSUk81cU1XcldWeGUifQ==,signature:8796762eb702bfa0bf7b9d8c8742bdc93d1854cb55f5db8d0fec11b0b9efba89/l5MkL5wwRRO5qMWrWVxe"),
+    new Card("Ace", 11, "Spades", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoibDVNa0w1d3dSUk81cU1XcldWeGUifQ==,signature:8796762eb702bfa0bf7b9d8c8742bdc93d1854cb55f5db8d0fec11b0b9efba89/l5MkL5wwRRO5qMWrWVxe"),
     new Card("Two", 2, "Spades", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiUXA4eHY2cWdSbWVjdWdhV1ZLdzMifQ==,signature:676aa9482d7a446d9b8b40ce9591fbe05a68d9e617ed478e0ab94cdd8ce68a84/Qp8xv6qgRmecugaWVKw3"),
     new Card("Three", 3, "Spades", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiTlVFQmptTFBTNHVrNnVpeTloVmYifQ==,signature:0999015126d5e8883c5434037d56cf547e09e55eeb19ed8bf2e0faebbb3dcc2c/NUEBjmLPS4uk6uiy9hVf"),
     new Card("Four", 4, "Spades", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiQ1JwU2ZFZUFRdGFWQUpCWlF5VWIifQ==,signature:99f54ec0653ebd9222deeba62af596187fbfeab51be95f89a4b37fac5f36f2a1/CRpSfEeAQtaVAJBZQyUb"),
@@ -36,7 +36,7 @@ const cards = [
     new Card("Jack", 10, "Spades", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiNFVFR3hkM1NrbVJGYnhmaHZ6SUEifQ==,signature:d0cc3adb52bd2f313a304715d2ad2b5f81ef5696421bb4aff987f9cab853a080/4UEGxd3SkmRFbxfhvzIA"),
     new Card("Queen", 10, "Spades", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiVlRUZkdPZnNSRGlSMmp0OUZBc2MifQ==,signature:5c0b62b7189d74957454cbc31988b25c6939d6f575dd30c0e7b2ab06eb0b00eb/VTTfGOfsRDiR2jt9FAsc"),
     new Card("King", 10, "Spades", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiSWpuUFRhVkRRUXFIcHFsb0JsZlgifQ==,signature:080802136a87703f7553455c2ae0fd0293caf40835a553550a78bc4aa7ae1fe5/IjnPTaVDQQqHpqloBlfX"),
-    new Card("Ace", 1, "Clubs", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiY05aRVJlUTBTQXFvdGdtbFFJZDIifQ==,signature:8200b6e7927a988f8e195ec4c5931395c42f7544b8b8f13f8237c49797eba868/cNZEReQ0SAqotgmlQId2"),
+    new Card("Ace", 11, "Clubs", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiY05aRVJlUTBTQXFvdGdtbFFJZDIifQ==,signature:8200b6e7927a988f8e195ec4c5931395c42f7544b8b8f13f8237c49797eba868/cNZEReQ0SAqotgmlQId2"),
     new Card("Two", 2, "Clubs", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiNWp6Z1h2R3ZUZm1NcFAyNWhkSmoifQ==,signature:3333508d73a26849dc089964703781258c0fc683004b1c45093d31084c323f4c/5jzgXvGvTfmMpP25hdJj"),
     new Card("Three", 3, "Clubs", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiSEc5dGVuS3VTd3FHb3FUeU02RlUifQ==,signature:750c27289d43ec319607252b8a0e65b48c4079e828666686887c3503a4dc2a17/HG9tenKuSwqGoqTyM6FU"),
     new Card("Four", 4, "Clubs", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiSjRTRHZoRVQ1UzFXWmxic1VhRkEifQ==,signature:b959af9666cc1d9bd0759e365333c629d49f43e5948125949ecb857879859a0c/J4SDvhET5S1WZlbsUaFA"),
@@ -49,7 +49,7 @@ const cards = [
     new Card("Jack", 10, "Clubs", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiWVFGeTRxZVNTdUNPbjJFVkxPTTcifQ==,signature:c6d006a0146617613c54702abac96458020bd7f4f48ffa04a65bf075f3ff1cb6/YQFy4qeSSuCOn2EVLOM7"),
     new Card("Queen", 10, "Clubs", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiSVBnbVVhYk9UZzZHQlVqblk5dDkifQ==,signature:54aa879e8094ac812da7ca815fce63bf8a1755a649c1ce9bd9480bfbf6fdfa75/IPgmUabOTg6GBUjnY9t9"),
     new Card("King", 10, "Clubs", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoieksyN2Z3ZDdURjJZTG5PbXVEZ28ifQ==,signature:cd462e7083879443975dbf3f787949cc408d0898961a9c7337414007f3931913/zK27fwd7TF2YLnOmuDgo"),
-    new Card("Ace", 1, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoieFpWSUJGVFJ5bUJsWkxiQWhuY2kifQ==,signature:5972cf7ad069534fc2d57933230879c558c1223bbcc8808b85f7ed2f36653791/xZVIBFTRymBlZLbAhnci"),
+    new Card("Ace", 11, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoieFpWSUJGVFJ5bUJsWkxiQWhuY2kifQ==,signature:5972cf7ad069534fc2d57933230879c558c1223bbcc8808b85f7ed2f36653791/xZVIBFTRymBlZLbAhnci"),
     new Card("Two", 2, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiYTZYUm5mWlVTOGlMVEZPS3Qyd0MifQ==,signature:2a5ea88af8d598b40b56d59e19506394955db594945472428ebf0ea9461db6af/a6XRnfZUS8iLTFOKt2wC"),
     new Card("Three", 3, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoia1dMNVdGMjJTQ3lFanR0dG1IZXcifQ==,signature:06506149ede845f8bb109d79ded6718d9a4d9296f1d4f95affdad5fe98566628/kWL5WF22SCyEjtttmHew"),
     new Card("Four", 4, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiNU9XdThpN0dScTYwM2FWaDVGeWcifQ==,signature:03ea9f8e3e58de1e4d0b3cb303704637515b6ed978530b6147e9f88b55d7b1a2/5OWu8i7GRq603aVh5Fyg"),
@@ -62,7 +62,7 @@ const cards = [
     new Card("Jack", 10, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiYjdyUXE5bXpRamlmQzRkVzViREYifQ==,signature:834ccbe796f6919dcc82ce5cb052932c9064962ec705dfda3da987775392d152/b7rQq9mzQjifC4dW5bDF"),
     new Card("Queen", 10, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiRWVmaTlzc09UZWkwRjVKM0tqZkEifQ==,signature:ac1b1bde3027e3c5e079f26be5ae3eba46197df88769b79c71332aa94a167316/Eefi9ssOTei0F5J3KjfA"),
     new Card("King", 10, "Hearts", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiQ3F5QkoyQlJ0bWw1VnM0Y3Y4bnIifQ==,signature:433db00e749b4b9a0757760a988ce39eed2538a9f988b36cafca8e59104232b2/CqyBJ2BRtml5Vs4cv8nr"),
-    new Card("Ace", 1, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiQmJGczZWdWZTRG0zRjViY2UzbXcifQ==,signature:f6546abbff153265eb55833b7e68724a52a80f94d77eabc5f1c6173b7990769c/BbFs6VufSDm3F5bce3mw"),
+    new Card("Ace", 11, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiQmJGczZWdWZTRG0zRjViY2UzbXcifQ==,signature:f6546abbff153265eb55833b7e68724a52a80f94d77eabc5f1c6173b7990769c/BbFs6VufSDm3F5bce3mw"),
     new Card("Two", 2, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiM2RQY2tIVHJpRFRXZzNlNTlnQlEifQ==,signature:a0f4681e092cc6a6ad8223563a142f0328a7fae7003d5ae520f311b39899db75/3dPckHTriDTWg3e59gBQ"),
     new Card("Three", 3, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiZ202ZUszTkVRbzIyNFc0MVJuV2kifQ==,signature:dd27f3f475120a2848e3d0a2c9e92d7eb7372a238f5b0c5253e6baee22f57746/gm6eK3NEQo224W41RnWi"),
     new Card("Four", 4, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiUFZaVlVMNVJxNnhod0k4d2pHMmcifQ==,signature:1c8fa7b208dc514440e58568ccef5ade5c4e971311b18a8407b11513be265a10/PVZVUL5Rq6xhwI8wjG2g"),
@@ -79,6 +79,12 @@ const cards = [
 
 // create deck
 let deck = [];
+
+let playerTotal = 0;
+let dealerTotal = 0;
+let gameStatus = "";
+let gameState = "Playing";
+let playerName = "Player";
 
 const createDeck = () => {
   deck = []; // Reset deck
@@ -99,8 +105,173 @@ const shuffleDeck = () => {
 createDeck();
 shuffleDeck();
 
-console.log(deck[0]);
+let playersHand = [];
+let dealersHand = [];
+let topCard = 0;
 
+app.post("/reset", (req, res) => {
+    console.log("resetting");
+    setTimeout(() => {
+      deck = [];
+      playerTotal = 0;
+      dealerTotal = 0;
+      gameStatus = "";
+      gameState = "Playing";
+      playersHand = [];
+      dealersHand = [];
+      topCard = 0;
+      createDeck();
+      shuffleDeck();
+      deal();
+      res.json({items: [{ result: "success"}]});
+
+    }, 300);
+})
+
+const deal = () => {
+  playersHand.push(deck[0], deck[2]);
+  dealersHand.push(deck[1], deck[3]);
+  topCard = 4;
+}
+
+deal();
+
+
+app.get("/deal", (req, res) => {
+  deal();
+  res.json({items: [
+    {
+      playerCard1: playersHand[0].img,
+      playerCard2: playersHand[1].img,
+      playerCards: [ {
+        name: "Test"
+      }
+      ]
+    }
+  ]})
+});
+
+const getTotal = (hand) => {
+  let total = 0;
+  for (card of hand) {
+    total += card.value;
+  }
+
+  // Determine if Ace should equal 1 or 11
+  for (card of hand) {
+    if (total > 21 && card.name.includes("Ace")) {
+      total -=10;
+    }
+  }
+
+  return total;
+}
+
+const getDealerTotal = () => {
+  return new Promise((resolve, reject) => {
+    let dealerTotal = getTotal(dealersHand);
+    resolve(dealerTotal);
+  })
+}
+
+app.get("/gameStatus", (req, res) => {
+  setTimeout(() => {
+    playerTotal = getTotal(playersHand);
+    dealerTotal = getTotal(dealersHand);
+    if (playerTotal === dealerTotal && gameState !== "Playing") {
+      gameState = "push";
+      gameStatus = "Push! No Winner!";
+    } else if (playerTotal > 21 && gameState !== "Playing") {
+      gameState = "bust";
+      gameStatus = "Bust! Dealer wins!";
+    } else if (gameState !== "Playing" && playerTotal > dealerTotal) {
+      gameState = "won";
+      gameStatus = `${playerName} Wins!`
+    } else if (dealerTotal > 21 && gameState !== "Playing") {
+      gameState = "dealer bust";
+      gameStatus = `Dealer Busts! ${playerName} Wins!`
+    } else if (gameState !== "Playing" && dealerTotal > playerTotal) {
+      gameState = "lose";
+      gameStatus = "Dealer Wins!";
+    }
+      res.json({items: [
+        {
+          gameStatus: gameStatus
+        }
+      ]})
+    
+  }, 500)
+})
+
+
+app.get("/playerCards", (req, res) => {
+  setTimeout(() => {
+    playerTotal = getTotal(playersHand);
+    if (playerTotal > 21) {
+      gameState = "bust";
+    }
+    res.json({items: [ { 
+      playersHand: playersHand,
+      total: `${playerName}'s Total: ${playerTotal}`,
+      status: gameStatus
+    }]})
+
+  }, 300)
+})
+
+app.post("/hit", (req, res) => {
+  console.log("Hit!");
+  
+
+    playersHand.push(deck[topCard]);
+    playerTotal = getTotal(playersHand);
+    if (playerTotal> 21) {
+      gameState = "bust";
+      gameStatus = "Bust! Dealer Wins!";
+    }
+    topCard++;
+    res.json({ items: [ {result: "It wokred!"}] });
+  
+})
+
+const dealersTurn = () => {
+  gameState = "standing";
+  return new Promise((resolve, reject) => {
+    while(getTotal(dealersHand) < 17) {
+      dealersHand.push(deck[topCard]);
+      topCard ++;
+    }
+    resolve();
+  })
+}
+
+app.post("/stay", async (req, res) => {
+  console.log("Stay!");
+    await dealersTurn();
+    res.json({items: [ { result: "Success!"}]});
+})
+
+
+const showDealerCards = () => {
+  let dealerCards = [];
+  return new Promise((resolve, reject) => {
+    if (gameState === "standing") {
+      dealerCards = dealersHand;
+    } else {
+      dealerCards = dealersHand.slice(1);
+    }
+    resolve(dealerCards);
+  })
+}
+
+app.get("/dealerCards", async (req, res) => {
+    const dealerTotal = await getDealerTotal(); 
+    const dealerCards = await showDealerCards(); 
+    res.json({items: [ {
+      dealersHand: dealerCards,
+      dealerTotal: dealerTotal
+    }]})
+})
 
 app.use(express.json());
 
