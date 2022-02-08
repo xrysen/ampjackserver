@@ -1,17 +1,24 @@
 const express = require("express");
 const app = express();
 const ampCors = require("@ampproject/toolbox-cors");
-const multer = require("multer");
-const multipart = multer();
 const PORT = process.env.PORT || 8000;
+const session = require("express-session");
 
 app.use(
-  ampCors({
-    verifyOrigin: false,
-    email: true,
-    allowCredentials: true,
-  })
+    ampCors({
+        verifyOrigin: false,
+        email: true,
+        allowCredntials: true
+    })
 );
+
+app.use(
+    session(
+        {
+            secret: 'asdawerasdfawer', 
+            
+        })
+    );
 
 class Card {
     constructor(name, value, suit, img) {
@@ -77,204 +84,167 @@ const cards = [
     new Card("King", 10, "Diamonds", "https://cdn.assets.dyspatch.io/security=policy:eyJjYWxsIjpbInJlYWQiLCJjb252ZXJ0Il0sImV4cGlyeSI6MjE0NzQ4MzY0NywiaGFuZGxlIjoiUFh5YlluNUlUWENVY05sS2lWd1IifQ==,signature:4802dcce57b96bb277a2d1e377486a75e4acee8da875b68a481f7f8cdb8da9f7/PXybYn5ITXCUcNlKiVwR")
 ];
 
-// create deck
-let deck = [];
-
-let playerTotal = 0;
-let dealerTotal = 0;
-let gameStatus = "";
-let gameState = "Playing";
-let playerName = "Player";
-
 const createDeck = () => {
-  deck = []; // Reset deck
-  for (const card of cards) {
-    deck.push(card);
-  }
+    const deck = [];
+    for (const card of cards) {
+        deck.push(card);
+    }
+    return deck;
 }
 
-const shuffleDeck = () => {
+const shuffleDeck = (deck) => {
     for (let i = deck.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      let temp = deck[i];
-      deck[i] = deck[j];
-      deck[j] = temp;
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = deck[i];
+        deck[i] = deck[j];
+        deck[j] = temp;
     }
 }
 
-createDeck();
-shuffleDeck();
-
-let playersHand = [];
-let dealersHand = [];
-let topCard = 0;
-
-app.post("/reset", (req, res) => {
-    console.log("resetting");
-    setTimeout(() => {
-      deck = [];
-      playerTotal = 0;
-      dealerTotal = 0;
-      gameStatus = "";
-      gameState = "Playing";
-      playersHand = [];
-      dealersHand = [];
-      topCard = 0;
-      createDeck();
-      shuffleDeck();
-      deal();
-      res.json({items: [{ result: "success"}]});
-
-    }, 300);
-})
-
-const deal = () => {
-  playersHand.push(deck[0], deck[2]);
-  dealersHand.push(deck[1], deck[3]);
-  topCard = 4;
+const deal = (hand1, hand2, deck, topCard) => {
+    hand1.push(deck[0], deck[2]);
+    hand2.push(deck[1], deck[3]);
+    topCard = 4;
 }
-
-deal();
-
-
-app.get("/deal", (req, res) => {
-  deal();
-  res.json({items: [
-    {
-      playerCard1: playersHand[0].img,
-      playerCard2: playersHand[1].img,
-      playerCards: [ {
-        name: "Test"
-      }
-      ]
-    }
-  ]})
-});
 
 const getTotal = (hand) => {
-  let total = 0;
-  for (card of hand) {
-    total += card.value;
-  }
-
-  // Determine if Ace should equal 1 or 11
-  for (card of hand) {
-    if (total > 21 && card.name.includes("Ace")) {
-      total -=10;
+    let total = 0;
+    for (card of hand) {
+        total += card.value;
     }
-  }
 
-  return total;
-}
-
-const getDealerTotal = () => {
-  return new Promise((resolve, reject) => {
-    let dealerTotal = getTotal(dealersHand);
-    resolve(dealerTotal);
-  })
-}
-
-app.get("/gameStatus", (req, res) => {
-  setTimeout(() => {
-    playerTotal = getTotal(playersHand);
-    dealerTotal = getTotal(dealersHand);
-    if (playerTotal === dealerTotal && gameState !== "Playing") {
-      gameState = "push";
-      gameStatus = "Push! No Winner!";
-    } else if (playerTotal > 21 && gameState !== "Playing") {
-      gameState = "bust";
-      gameStatus = "Bust! Dealer wins!";
-    } else if (gameState !== "Playing" && playerTotal > dealerTotal) {
-      gameState = "won";
-      gameStatus = `${playerName} Wins!`
-    } else if (dealerTotal > 21 && gameState !== "Playing") {
-      gameState = "dealer bust";
-      gameStatus = `Dealer Busts! ${playerName} Wins!`
-    } else if (gameState !== "Playing" && dealerTotal > playerTotal) {
-      gameState = "lose";
-      gameStatus = "Dealer Wins!";
-    }
-      res.json({items: [
-        {
-          gameStatus: gameStatus
+    // Determine if Ace should equal 1 or 11
+    for (card of hand) {
+        if (total > 21 && card.name.includes("Ace")) {
+            total -= 10;
         }
-      ]})
-    
-  }, 500)
+    }
+    return total;
+}
+
+const getDealerTotal = (dealersHand) => {
+    return new Promise((resolve, reject) => {
+        let dealerTotal = getTotal(dealersHand);
+        resolve(dealerTotal);
+    })
+}
+
+app.use((req, res, next) => {
+    if(!req.session.initialised) {
+        req.session.initialised = true;
+        req.session.playerTotal = 0;
+        req.session.dealerTotal = 0;
+        req.session.gameStatus = "";
+        req.session.gameState = "Playing";
+        req.session.playersHand = [];
+        req.session.dealersHand = [];
+        req.session.playerName = "";
+        req.session.topCard = 0;
+        req.session.deck = createDeck();
+        shuffleDeck(req.session.deck);
+        deal(req.session.playersHand, req.session.dealersHand, req.session.deck, req.session.topCard);
+    }
+    next();
 })
 
+app.get("/gameStatus", (req, res) => {
+    const s = req.session;
+    setTimeout(() => {
+        s.playerTotal = getTotal(s.playersHand);
+        s.dealerTotal = getTotal(s.dealersHand);
+        if (s.playerTotal === s.dealerTotal && s.gameState !== "Playing") {
+            s.gameState = "push";
+            s.gameStatus = "Push! No Winner!";
+        } else if (s.playerTotal > 21 && s.gameState !== "Playing") {
+            s.gameState = "bust";
+            s.gameStatus = "Bust! Dealer wins!";
+        } else if (s.gameState !== "Playing" && s.playerTotal > s.dealerTotal) {
+            s.gameState = "won";
+            s.gameStatus = `${s.playerName} Wins!`
+        } else if (s.dealerTotal > 21 && s.gameState !== "Playing") {
+            s.gameState = "dealer bust";
+            s.gameStatus = `Dealer Busts! ${s.playerName} Wins!`
+        } else if (s.gameState !== "Playting" && s.dealerTotal > s.playerTotal) {
+            s.gameState = "lose";
+            s.gameStatus = "Dealer Wins!";
+        }
+        res.json({items: [
+            {
+                gameStatus: s.gameStatus + Math.floor(Math.random(10)) * 1,
+            }
+        ]})
+    }, 500)
+})
 
 app.get("/playerCards", (req, res) => {
-  setTimeout(() => {
-    playerTotal = getTotal(playersHand);
-    if (playerTotal > 21) {
-      gameState = "bust";
-    }
-    res.json({items: [ { 
-      playersHand: playersHand,
-      total: `${playerName}'s Total: ${playerTotal}`,
-      status: gameStatus
-    }]})
-
-  }, 300)
+    const s = req.session;
+    setTimeout(() => {
+        s.playerTotal = getTotal(s.playersHand);
+        if (s.playerTotal > 21) {
+            s.gameState = "bust";
+        }
+        res.json({items: [{
+            playersHand: s.playersHand,
+            total: `${s.playersName}'s Total: ${s.playerTotal}`,
+            status: s.gameStatus
+        }]})
+    }, 300)
 })
 
 app.post("/hit", (req, res) => {
-  console.log("Hit!");
-  
-
-    playersHand.push(deck[topCard]);
-    playerTotal = getTotal(playersHand);
-    if (playerTotal> 21) {
-      gameState = "bust";
-      gameStatus = "Bust! Dealer Wins!";
+    const s = req.session;
+    s.playersHand.push(s.deck[s.topCard]);
+    s.playerTotal = getTotal(s.playersHand);
+    if (s.playerTotal > 21) {
+        s.gameState = "bust";
+        s.gameStatus = "Bust! Dealer Wins!"
     }
-    topCard++;
-    res.json({ items: [ {result: "It wokred!"}] });
-  
+    s.topCard++;
+    res.json({items: [ { result: "It worked! "}]})
 })
 
-const dealersTurn = () => {
-  gameState = "standing";
-  return new Promise((resolve, reject) => {
-    while(getTotal(dealersHand) < 17) {
-      dealersHand.push(deck[topCard]);
-      topCard ++;
-    }
-    resolve();
-  })
+const dealersTurn = (gameState, dealersHand, deck, topCard) => {
+    gameState = "standing";
+    return new Promise((resolve, reject) => {
+        while(getTotal(dealersHand) < 17) {
+            dealersHand.push(deck[topCard]);
+            topCard ++;
+        }
+        resolve();
+    })
 }
 
 app.post("/stay", async (req, res) => {
-  console.log("Stay!");
-    await dealersTurn();
-    res.json({items: [ { result: "Success!"}]});
+    const s = req.session;
+    console.log("Stay!");
+    await dealersTurn(s.gameState, s.dealersHand, s.deck, s.topCard);
+    res.json({items: [ { result: "Success! "}]})
 })
 
-
-const showDealerCards = () => {
-  let dealerCards = [];
-  return new Promise((resolve, reject) => {
-    if (gameState === "standing") {
-      dealerCards = dealersHand;
-    } else {
-      dealerCards = dealersHand.slice(1);
-    }
-    resolve(dealerCards);
-  })
+const showDealerCards = (dealersHand, gameState) => {
+    let dealerCards = [];
+    return new Promise((resolve, reject) => {
+        if (gameState === "standing") {
+            dealersCards = dealersHand;
+        } else {
+            dealersCards = dealersHand.slice(1);
+        }
+        resolve(dealerCards);
+    })
 }
 
 app.get("/dealerCards", async (req, res) => {
-    const dealerTotal = await getDealerTotal(); 
-    const dealerCards = await showDealerCards(); 
+    const s = req.session;
+    const dealerTotal = await getDealerTotal(s.dealersHand);
+    const dealerCards = await showDealerCards(s.dealersHand, s.gameState);
     res.json({items: [ {
-      dealersHand: dealerCards,
-      dealerTotal: dealerTotal
+        dealersHand: dealerCards,
+        dealerTotal: dealerTotal
     }]})
 })
 
 app.use(express.json());
 
-app.listen(PORT, ()=> {
+app.listen(PORT, () => {
     console.log(`Listening on PORT ${PORT}`);
 })
