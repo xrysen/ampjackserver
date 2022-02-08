@@ -130,6 +130,7 @@ const getDealerTotal = (dealersHand) => {
 }
 
 app.use((req, res, next) => {
+    console.log(req.session.id)
     if(!req.session.initialised) {
         req.session.initialised = true;
         req.session.playerTotal = 0;
