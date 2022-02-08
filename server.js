@@ -12,13 +12,13 @@ app.use(
     })
 );
 
-app.use(
-    session(
-        {
-            secret: 'asdawerasdfawer', 
-            
-        })
-    );
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 
 class Card {
     constructor(name, value, suit, img) {
