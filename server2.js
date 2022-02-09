@@ -111,6 +111,10 @@ app.get("/dealersCards", async (req, res) => {
     console.log(s.id);
     const dealerTotal = await game.getDealerTotal(s.dealersHand);
     const dealerCards = await game.showDealerCards(s.gameState, s.dealersHand);
+    res.json({items: [ {
+        dealersHand: dealerCards,
+        dealerTotal: dealerTotal
+    }]})
 })
 
 app.listen(PORT, () => {
