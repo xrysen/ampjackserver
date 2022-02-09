@@ -144,6 +144,7 @@ app.use((req, res, next) => {
         req.session.deck = createDeck();
         shuffleDeck(req.session.deck);
         deal(req.session.playersHand, req.session.dealersHand, req.session.deck, req.session.topCard);
+        req.session.save();
     }
     next();
 })
