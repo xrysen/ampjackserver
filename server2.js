@@ -4,7 +4,6 @@ const ampCors = require("@ampproject/toolbox-cors");
 const PORT = process.env.PORT || 8000;
 const session = require("express-session");
 const game = require("./AMPJack");
-const s = require("connect-redis");
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
@@ -25,7 +24,7 @@ app.use(
 app.get("/startGame", (req, res, next) => {
     const s = req.session;
     if(!s.initialized) {
-        console.log(s.id);
+        console.log("Start Game", s.id);
         s.initialized = true;
         s.deck = [];
         s.playerTotal = 0;
@@ -45,7 +44,7 @@ app.get("/startGame", (req, res, next) => {
 app.get("/gameStatus", (req, res) => {
    const s = req.session;
     setTimeout(() => {
-        console.log(s.id);
+        console.log("Game Status", s.id);
         s.playerTotal = game.getTotal(s.playersHand);
         s.dealerTotal = game.getTotal(s.dealersHand);
         if (s.playerTotal === s.dealerTotal && gameState !== "Playing") {
@@ -73,7 +72,7 @@ app.get("/gameStatus", (req, res) => {
 app.get("/playerCards", (req, res) => {
     const s = req.session;
     setTimeout(() => {
-        console.log(s.id);
+        console.log("PlayerCards", s.id);
         s.playerTotal = game.getTotal(s.playersHand);
         if (s.playerTotal > 21) {
             s.gameState = "bust";
@@ -108,7 +107,7 @@ app.post("/stay", async (req, res) => {
 
 app.get("/dealersCards", async (req, res) => {
     const s = req.session;
-    console.log(s.id);
+    console.log("dealerCards", s.id);
     const dealerTotal = await game.getDealerTotal(s.dealersHand);
     const dealerCards = await game.showDealerCards(s.gameState, s.dealersHand);
     res.json({items: [ {
