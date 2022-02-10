@@ -10,7 +10,12 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true, sameSite: 'none' }
+  cookie: {
+    sameSite: 'none',
+    httpOnly: true,
+    secure: true,
+    maxAge: 1000 * 60 * 60 * 24 * 30
+},
 }))
 
 app.use(
