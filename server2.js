@@ -21,10 +21,9 @@ app.use(
     })
   );
 
-app.get("/startGame", (req, res, next) => {
+app.use((req, res, next) => {
     const s = req.session;
     if(!s.initialized) {
-        console.log("Start Game", s.id);
         s.initialized = true;
         s.deck = [];
         s.playerTotal = 0;
