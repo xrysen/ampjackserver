@@ -19,7 +19,7 @@ app.use(
     ampCors({
       verifyOrigin: false,
       email: true,
-      allowCredentials: true,
+      allowCredentials: false,
     })
   );
 
